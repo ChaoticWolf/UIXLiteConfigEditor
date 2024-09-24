@@ -315,6 +315,11 @@ namespace UIXLiteConfigEditor
         {
             try
             {
+                if (!File.Exists(ConfigFile))
+                {
+                    using (File.Create(ConfigFile)) { }
+                }
+
                 if (ConfigLoaded || ConfigDownloaded)
                 {
                     //Create a backup of the config
